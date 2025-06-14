@@ -44,15 +44,17 @@ Make sure you have the following installed:
 
 > (You can upload screenshots in your GitHub repo and link them here)
 
-![Task List Screenshot](./screenshots/task-list.png)
-![New Task Modal](./screenshots/new-task.png)
+![image](https://github.com/user-attachments/assets/3cb0378d-f3c7-4ab7-b9d4-9f0a1c41c348)
+
+![image](https://github.com/user-attachments/assets/2e18b1bf-d29f-4cfa-afff-e6bd433312c0)
+
 ## 🛠 Run Locally
 
 2. Run the Backend (Flask)
 ```markdown
-!cd backend
-!pip install -r requirements.txt
-!python app.py
+cd backend
+pip install -r requirements.txt
+python app.py
 
 The backend will start at http://localhost:5000.
 
