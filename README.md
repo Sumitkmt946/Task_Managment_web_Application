@@ -35,7 +35,7 @@ A powerful and intuitive task management tool built with *Flask* (Python backend
 
 2. Run the Backend (Flask)
 
-*cd backend*
+**cd backend**
 *pip install -r requirements.txt*
 *python app.py*
 
