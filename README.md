@@ -31,13 +31,28 @@ A powerful and intuitive task management tool built with *Flask* (Python backend
 | *Vercel* | Frontend Hosting |
 
 ---
+### ⚙ Prerequisites
+
+Make sure you have the following installed:
+
+- Node.js & npm
+- Python 3.8+
+- Git
+
+---
+## 🖥 Screenshots (Optional)
+
+> (You can upload screenshots in your GitHub repo and link them here)
+
+![Task List Screenshot](./screenshots/task-list.png)
+![New Task Modal](./screenshots/new-task.png)
 ## 🛠 Run Locally
 
 2. Run the Backend (Flask)
 ```markdown
 !cd backend
 !pip install -r requirements.txt
-!python app.py'''
+!python app.py
 
 The backend will start at http://localhost:5000.
 
@@ -54,19 +69,4 @@ ng serve
 
 The Angular app will run at http://localhost:4200.
 
-### ⚙ Prerequisites
 
-Make sure you have the following installed:
-
-- Node.js & npm
-- Python 3.8+
-- Git
-
----
-## 🖥 Screenshots (Optional)
-
-> (You can upload screenshots in your GitHub repo and link them here)
-
-```markdown
-![Task List Screenshot](./screenshots/task-list.png)
-![New Task Modal](./screenshots/new-task.png)
