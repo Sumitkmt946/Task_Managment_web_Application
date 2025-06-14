@@ -37,7 +37,7 @@ A powerful and intuitive task management tool built with *Flask* (Python backend
 ```markdown
 !cd backend
 !pip install -r requirements.txt
-!python app.py
+!python app.py'''
 
 The backend will start at http://localhost:5000.
 
