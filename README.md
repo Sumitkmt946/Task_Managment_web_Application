@@ -35,9 +35,9 @@ A powerful and intuitive task management tool built with *Flask* (Python backend
 
 2. Run the Backend (Flask)
 
-cd backend
-pip install -r requirements.txt
-python app.py
+*cd backend*
+*pip install -r requirements.txt*
+*python app.py*
 
 The backend will start at http://localhost:5000.
 
