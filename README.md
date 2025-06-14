@@ -31,7 +31,38 @@ A powerful and intuitive task management tool built with *Flask* (Python backend
 | *Vercel* | Frontend Hosting |
 
 ---
+## 🛠 Run Locally
 
+2. Run the Backend (Flask)
+
+cd backend
+pip install -r requirements.txt
+python app.py
+
+The backend will start at http://localhost:5000.
+
+
+---
+
+3. Run the Frontend (Angular)
+
+Open a new terminal:
+
+cd frontend
+npm install
+ng serve
+
+The Angular app will run at http://localhost:4200.
+
+### ⚙ Prerequisites
+
+Make sure you have the following installed:
+
+- Node.js & npm
+- Python 3.8+
+- Git
+
+---
 ## 🖥 Screenshots (Optional)
 
 > (You can upload screenshots in your GitHub repo and link them here)
