@@ -1,0 +1,28 @@
+[
+  {
+    "id": 1,
+    "date": "2025-06-14",
+    "entityName": "ABC Pvt Ltd",
+    "taskType": "Call",
+    "time": "10:00 AM",
+    "contactPerson": "Ravi Kumar",
+    "notes": "Follow-up call for demo",
+    "status": "Open",
+    "phoneNumber": "+91-9876543210",
+    "createdAt": "2025-06-14T10:30:00",
+    "updatedAt": "2025-06-14T10:30:00"
+  },
+  {
+    "id": 2,
+    "date": "2025-06-15",
+    "entityName": "XYZ Solutions",
+    "taskType": "Meeting",
+    "time": "2:00 PM",
+    "contactPerson": "Pooja Sharma",
+    "notes": "Product discussion",
+    "status": "Closed",
+    "phoneNumber": "+91-9123456789",
+    "createdAt": "2025-06-14T11:00:00",
+    "updatedAt": "2025-06-14T11:00:00"
+  }
+]

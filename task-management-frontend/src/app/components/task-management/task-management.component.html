@@ -1,0 +1,159 @@
+<p>Task List Web Application</p>
+<div class="sales-log-container">
+  <!-- Header -->
+  <div class="sales-log-header">
+    <h2 class="sales-log-title">SALES LOG</h2>
+    <button class="new-task-btn" (click)="openNewTaskModal()">
+      <span class="icon">⊕</span> New Task
+    </button>
+  </div> <!-- Filters and Search -->
+  <div class="filters-container">
+    <div class="task-type-filter">
+      <div class="task-type-dropdown" (click)="toggleTaskTypeDropdown()">
+        <div class="selected-type">
+          <span class="task-type-label">Task Type</span>
+          <span class="task-type-value">{{ selectedTaskType }}</span>
+          <span class="dropdown-arrow">▼</span>
+        </div>
+        <div class="dropdown-menu" *ngIf="showTaskTypeDropdown">
+          <div class="dropdown-item" (click)="setTaskType('All')">
+            <span class="task-icon">🔄</span> All
+          </div>
+          <div class="dropdown-item" (click)="setTaskType('Call')">
+            <span class="task-icon">📞</span> Call
+          </div>
+          <div class="dropdown-item" (click)="setTaskType('Meeting')">
+            <span class="task-icon">📍</span> Meeting
+          </div>
+          <div class="dropdown-item" (click)="setTaskType('Video Call')">
+            <span class="task-icon">📹</span> Video Call
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="search-container">
+      <input type="text" class="search-input" placeholder="Search" [(ngModel)]="searchTerm" (input)="applyFilters()">
+    </div>
+
+  </div> <!-- Filter Hint -->
+  <div class="filter-hint">
+    <span class="filter-icon">🔍</span>
+    Use the <span class="filter-icon">▼</span> icon next to the table titles to apply filters
+  </div> <!-- Tasks Table -->
+  <div class="tasks-table-container">
+    <table class="tasks-table">
+      <thead>
+        <tr>
+          <th>Date <span class="sort-icon">↕</span></th>
+          <th>Entity Name <span class="sort-icon">↕</span></th>
+          <th>Task Type <span class="sort-icon">↕</span></th>
+          <th>Time <span class="sort-icon">↕</span></th>
+          <th>Contact Person <span class="sort-icon">↕</span></th>
+          <th>Notes <span class="sort-icon">↕</span></th>
+          <th>Status <span class="sort-icon">↕</span></th>
+          <th>Options</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let task of filteredTasks">
+          <td>{{ task.date }}</td>
+          <td class="entity-name">{{ task.entityName }}</td>
+          <td>
+            <div class="task-type">
+              <span class="task-icon" *ngIf="task.taskType === 'Call'">📞</span>
+              <span class="task-icon" *ngIf="task.taskType === 'Meeting'">📍</span>
+              <span class="task-icon" *ngIf="task.taskType === 'Video Call'">📹</span>
+              {{ task.taskType }}
+            </div>
+          </td>
+          <td>{{ task.time }}</td>
+          <td>{{ task.contactPerson }}</td>
+          <td>
+            <div *ngIf="task.note" class="note-text">{{ task.note }}</div>
+            <button *ngIf="!task.note" class="add-note-btn" (click)="addNote(task)">
+              <span class="note-icon">⊕</span> Add Note
+            </button>
+          </td>
+          <td>
+            <span class="status-badge" [ngClass]="task.status === 'Open' ? 'status-open' : 'status-closed'">
+              {{ task.status }}
+            </span>
+          </td>
+          <td>
+            <div class="options-dropdown">
+              <button class="options-btn" (click)="toggleOptions(task.id)">
+                Options <span class="dropdown-arrow">▼</span>
+              </button>
+              <div class="options-menu" *ngIf="showOptionsFor === task.id">
+                <button class="option-item" (click)="editTask(task)">Edit</button>
+                <button class="option-item" (click)="duplicateTask(task)">Duplicate</button>
+                <button class="option-item" (click)="changeStatus(task)">
+                  Change status to {{ task.status === 'Open' ? 'Closed' : 'Open' }}
+                </button>
+              </div>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div> <!-- New Task Modal -->
+  <div class="modal-overlay" *ngIf="showNewTaskModal" (click)="closeNewTaskModal()">
+    <div class="modal-content" (click)="$event.stopPropagation()">
+      <div class="modal-header">
+        <h3 class="modal-title">{{ editingTask ? 'EDIT TASK' : 'NEW TASK' }}</h3>
+        <div class="status-toggle">
+          <button class="status-btn" [ngClass]="{'active': newTask.status === 'Open'}"
+            (click)="newTask.status = 'Open'">
+            Open
+          </button>
+          <button class="status-btn" [ngClass]="{'active': newTask.status === 'Closed'}"
+            (click)="newTask.status = 'Closed'">
+            Closed
+          </button>
+        </div>
+      </div>
+      <div class="modal-body">
+        <div class="form-group">
+          <label for="entityName">Entity name</label>
+          <input type="text" id="entityName" [(ngModel)]="newTask.entityName" placeholder="Enter entity name">
+        </div>
+
+        <div class="form-group">
+          <label>Task Type</label>
+          <div class="task-type-select">
+            <select [(ngModel)]="newTask.taskType">
+              <option value="Call">📞 Call</option>
+              <option value="Meeting">📍 Meeting</option>
+              <option value="Video Call">📹 Video Call</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="phoneNumber">Phone number</label>
+          <input type="tel" id="phoneNumber" [(ngModel)]="newTask.phoneNumber" placeholder="Enter phone number">
+        </div>
+
+        <div class="form-group">
+          <label for="time">Time</label>
+          <input type="text" id="time" [(ngModel)]="newTask.time" placeholder="e.g. 1:00 PM">
+        </div>
+
+        <div class="form-group">
+          <label for="contactPerson">Contact person</label>
+          <input type="text" id="contactPerson" [(ngModel)]="newTask.contactPerson" placeholder="Enter contact person">
+        </div>
+
+        <div class="form-group">
+          <label for="note">Note (optional)</label>
+          <textarea id="note" [(ngModel)]="newTask.note" placeholder="Enter note" rows="3"></textarea>
+        </div>
+      </div>
+
+      <div class="modal-footer">
+        <button class="cancel-btn" (click)="closeNewTaskModal()">CANCEL</button>
+        <button class="save-btn" (click)="saveTask()">SAVE</button>
+      </div>
+    </div>
+  </div>
+</div>
