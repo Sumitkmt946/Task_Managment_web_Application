@@ -52,7 +52,7 @@ Make sure you have the following installed:
 
 2. Run the Backend (Flask)
 ```markdown
-cd backend
+cd task-management-backend
 pip install -r requirements.txt
 python app.py
 
@@ -65,7 +65,7 @@ The backend will start at http://localhost:5000.
 
 Open a new terminal:
 
-cd frontend
+cd task-management-frontend
 npm install
 ng serve
 
