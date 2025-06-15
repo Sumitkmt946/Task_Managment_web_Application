@@ -55,7 +55,7 @@ Make sure you have the following installed:
 cd backend
 pip install -r requirements.txt
 python app.py
-```markdown
+
 The backend will start at http://localhost:5000.
 
 
