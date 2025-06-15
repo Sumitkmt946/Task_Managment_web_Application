@@ -35,7 +35,7 @@ A powerful and intuitive task management tool built with *Flask* (Python backend
 
 Make sure you have the following installed:
 
-- Node.js & npm
+- npm
 - Python 3.8+
 - Git
 
@@ -55,7 +55,7 @@ Make sure you have the following installed:
 cd backend
 pip install -r requirements.txt
 python app.py
-
+```markdown
 The backend will start at http://localhost:5000.
 
 
