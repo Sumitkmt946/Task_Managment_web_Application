@@ -51,11 +51,11 @@ Make sure you have the following installed:
 ## 🛠 Run Locally
 
 2. Run the Backend (Flask)
-```markdown
+```bash
 cd task-management-backend
 pip install -r requirements.txt
 python app.py
-
+```
 The backend will start at http://localhost:5000.
 
 
@@ -64,11 +64,11 @@ The backend will start at http://localhost:5000.
 3. Run the Frontend (Angular)
 
 Open a new terminal:
-
+```bash
 cd task-management-frontend
 npm install
 ng serve
-
+```
 The Angular app will run at http://localhost:4200.
 
 
